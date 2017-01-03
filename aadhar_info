@@ -1,0 +1,41 @@
+1.aadhar bridge account info
+==========================
+url:http://bridge.aadhaarconnect.com/
+UserName : jaijashtatia@hotmail.com 
+Pwd :  Waterworks12
+
+
+
+2.How to generate a CSR?
+Steps to generate a CSR file using openssl.
+
+    Create private key with a validity
+
+    keytool -genkey -alias ALIAS_NAME -keyalg RSA -keystore COMP_NAME.jks -keysize 2048 -dname "CN=COMMON_NAME, EMAILADDRESS=sample@abc.com, C=IN, OU=ORG_UNIT, O=ORGANIZATION_NAME"
+    Create CSR for above key
+
+    keytool -certreq -alias ALIAS_NAME -file COMP_NAME.csr -keystore COMP_NAME.jks
+    Convert jks store to p12
+    keytool -importkeystore -srckeystore COMP_NAME.jks -destkeystore COMP_NAME.p12 -srcstoretype jks -deststoretype pkcs12
+
+
+3.Steps for Document Generation
+
+Details to be ensured while generating the “CSR” through the terminal window by the customer are:
+
+    ALIAS_NAME : This could be anything.
+    COMP_NAME : This could be anything.
+    COMMON_NAME : This should be the same as the contact person’s name.
+    sample@abc.com : This should be same as the login email id.
+    ORG_UNIT : Value should be “Khosla Labs”
+    ORGANIZATION_NAME : This should be same as the organization name in the Sub-AUA’s profile for an organization. Can be anything for an individual.
+
+
+
+4.Want to generate a new Certificate?
+Generate a CSR (Certificate Signing Request) and upload it here to generate a ".cer" file. 
+
+
+
+
+5.Add new IP address to be whitelisted 
